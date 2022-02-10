@@ -60,6 +60,12 @@ def convert_route_to_track(gpx):
             pt.tag = "{{{0}}}trkpt".format(GPXNS)
             trkseg.append(pt)
 
+    # Also copy over explicit waypoints in the source file. These may be
+    # present if we export from Gaia GPS a folder containing both a route and
+    # one or more waypoints.
+    for wpt in route_root.iter("{{{0}}}wpt".format(GPXNS)):
+        track_root.append(wpt)
+
     return (
         '<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n'
         + convert_element_to_string(track_root)
