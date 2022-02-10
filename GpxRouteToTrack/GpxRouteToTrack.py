@@ -15,7 +15,6 @@ __license__ = "Apache License 2.0"
 
 import appex
 import dialogs
-import os
 from pathlib import Path
 import tempfile
 import xml.etree.ElementTree as ET
@@ -64,14 +63,14 @@ def main():
         print("This script is intended to run from the sharing extension")
         return
 
-    gpx_route_path = appex.get_text()
+    gpx_route_path = Path(appex.get_text())
     with open(gpx_route_path, "r") as f:
         gpx_route = f.read()
 
     gpx_track = convert_route_to_track(gpx_route)
 
     with tempfile.TemporaryDirectory() as td:
-        gpx_path = Path(td) / os.path.basename(gpx_route_path)
+        gpx_path = Path(td) / gpx_route_path.name
         with open(gpx_path, "w") as f:
             f.write(gpx_track)
         uri = gpx_path.resolve().as_uri()
