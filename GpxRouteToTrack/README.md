@@ -12,7 +12,7 @@ Once I've created a route in Gaia GPS, ideally I'd like to sync it to my Garmin 
 
 But there's a catch: The Gaia GPS app exports [GPX Routes instead of Tracks](https://stackoverflow.com/questions/9992705/what-is-the-difference-between-track-and-route-in-a-gpx-file). When importing a GPX Route, Garmin Explore treats navigation points as explicit waypoints, which leads to a cluttered display when using the Route on the watch:
 
-![Photo of waypoint labels on the watch](img/watch-waypoints.jpg)
+<center><img src="img/watch-waypoints.jpg" alt="Photo of waypoint labels on the watch" width="600"></center>
 
 This can be avoided by converting the GPX Route into a Track in web applications like [GPS Visualizer](https://www.gpsvisualizer.com/). But I need to be able to perform the entire route planning and sync workflow offline.
 
