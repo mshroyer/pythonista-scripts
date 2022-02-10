@@ -1,9 +1,17 @@
 """
 Converts a GPX Route to a Track for sharing with Garmin Explore on iOS
 
-This is a Pythonista 3 script intended to be used 
+This is a Pythonista 3 script for converting a GPX Route exported from Gaia
+GPS into a GPX Track suitable for import into Garmin Explore.
+
+See https://github.com/mshroyer/pythonista-scripts for the latest version.
 
 """
+
+__author__ = "Mark Shroyer <mark@shroyer.name>"
+__copyright__ = "Copyright 2022 Mark Shroyer"
+__license__ = "Apache License 2.0"
+
 
 import appex
 import dialogs
