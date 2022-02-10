@@ -1,6 +1,6 @@
 # Pythonista Scripts
 
-Scripts I've written for [Pythonista 3](https://www.omz-software.com/pythonista/) on iOS.
+Scripts or [bodges](https://youtu.be/lIFE7h3m40U) that I've written for [Pythonista 3](https://www.omz-software.com/pythonista/) on iOS.
 
 ## License
 
