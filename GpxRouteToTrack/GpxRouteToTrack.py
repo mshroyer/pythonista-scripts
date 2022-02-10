@@ -46,16 +46,16 @@ def convert_route_to_track(gpx):
         return gpx
 
     track_root = ET.Element("gpx", route_root.attrib)
-
     track_root.append(route_root.find("{{{0}}}metadata".format(GPXNS)))
-    trk = ET.SubElement(track_root, "trk", {})
-    for name in route_root.iter("{{{0}}}name".format(GPXNS)):
-        if name.text is not None:
-            trk.append(name)
-            break
 
-    trkseg = ET.SubElement(trk, "trkseg", {})
     for rte in route_root.iter("{{{0}}}rte".format(GPXNS)):
+        trk = ET.SubElement(track_root, "trk", {})
+        for name in route_root.iter("{{{0}}}name".format(GPXNS)):
+            if name.text is not None:
+                trk.append(name)
+                break
+
+        trkseg = ET.SubElement(trk, "trkseg", {})
         for pt in rte.iter("{{{0}}}rtept".format(GPXNS)):
             pt.tag = "{{{0}}}trkpt".format(GPXNS)
             trkseg.append(pt)
