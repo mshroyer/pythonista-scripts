@@ -37,6 +37,14 @@ def convert_route_to_track(gpx):
 
     ET.register_namespace("", GPXNS)
     route_root = ET.fromstring(gpx)
+
+    # If the GPX data doesn't contain a route (for example, maybe it's already
+    # a track, which can be the case with some courses that were created by
+    # importing existing GPX files into Gaia GPS), just return it verbatim
+    # without attempting any conversion.
+    if not route_root.find("{{{0}}}rte".format(GPXNS)):
+        return gpx
+
     track_root = ET.Element("gpx", route_root.attrib)
 
     track_root.append(route_root.find("{{{0}}}metadata".format(GPXNS)))
